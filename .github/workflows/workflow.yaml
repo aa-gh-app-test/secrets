@@ -10,6 +10,7 @@ on:
 
 jobs:
   workflow:
+    name: "Kalle på gungstolen"
     uses: ./.github/workflows/reusable2.yaml
     secrets:
       PASSWORD: ${{ secrets.PASSWORD }}
