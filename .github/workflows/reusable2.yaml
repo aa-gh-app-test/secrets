@@ -1,0 +1,26 @@
+name: "Reusable2"
+
+on:
+  workflow_call:
+    inputs:
+      allow:
+       default: true
+       type: boolean
+    secrets:
+      PASSWORD:
+        required: true
+jobs:
+  reusable_1:
+    name: "Reusable1"
+    runs-on: ubuntu-22.04
+    environment: prod
+    steps:
+      - run: |
+        echo Password is $PASSWORD
+        if [[ $PASSWORD == *"hemligt"* ]]; then
+          echo "This is the PROD password!"
+        else
+          echo "This is NOT the PROD password!"
+        fi
+      env:
+        PASSWORD: ${{ secrets.PASSWORD }}

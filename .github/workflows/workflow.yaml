@@ -1,0 +1,18 @@
+# This file is managed by Terraform in the https://github.com/atgse/github-config repository.
+#
+# Do NOT change content of the file in the repository as it will be overwritten!
+
+
+name: "Release workflow"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  workflow:
+    uses: ./.github/workflows/reusable2.yaml
+    secrets:
+      PASSWORD: ${{ secrets.PASSWORD }}
+    # with:
+    #   release: ${{ inputs.release }}
+    #   kalle: ""
