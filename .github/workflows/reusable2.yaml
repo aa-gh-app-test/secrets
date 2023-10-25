@@ -3,6 +3,8 @@ name: "Reusable2"
 on:
   workflow_call:
     inputs:
+      environment:
+        type:string
       allow:
        default: true
        type: boolean
@@ -13,7 +15,7 @@ jobs:
   reusable_1:
     name: "Reusable1"
     runs-on: ubuntu-22.04
-    environment: prod
+    environment: ${{ inputs.environment }}
     steps:
       - run: |
           echo Password is $PASSWORD

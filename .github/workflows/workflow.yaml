@@ -13,6 +13,14 @@ jobs:
     uses: ./.github/workflows/reusable2.yaml
     secrets:
       PASSWORD: ${{ secrets.PASSWORD }}
+    with:
+      environment: prod
+  test:
+    uses: ./.github/workflows/reusable2.yaml
+    secrets:
+      PASSWORD: test
+    with:
+      environment: test
     # with:
     #   release: ${{ inputs.release }}
     #   kalle: ""
