@@ -8,9 +8,6 @@ on:
       allow:
         default: true
         type: boolean
-    secrets:
-      PASSWORD:
-        required: true
 jobs:
   reusable_1:
     name: "Reusable1"
