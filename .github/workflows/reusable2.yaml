@@ -4,10 +4,10 @@ on:
   workflow_call:
     inputs:
       environment:
-        type:string
+        type: string
       allow:
-       default: true
-       type: boolean
+        default: true
+        type: boolean
     secrets:
       PASSWORD:
         required: true
