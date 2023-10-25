@@ -21,8 +21,10 @@ jobs:
           echo Password is $PASSWORD
           if [[ $PASSWORD == *"hemligt"* ]]; then
             echo "This is the PROD password!"
+          elif [[ $PASSWORD == *"test"* ]]; then
+            echo "This is the TEST password!"
           else
-            echo "This is NOT the PROD password!"
+            echo "No password provided"
           fi
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
