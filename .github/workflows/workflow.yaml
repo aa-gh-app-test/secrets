@@ -21,5 +21,10 @@ jobs:
 
       - name: Output Current Job Log URL
         run: |
-          echo ${{ steps.jobs.outputs.html_url }}
-          curl -L ${{ steps.jobs.outputs.html_url }}
+          echo ${{ steps.jobs.outputs.job_id }}
+          gh api \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          /repos/${GITHUB_REPOSITORY}/actions/jobs/${{ steps.jobs.outputs.job_id }}/logs
+        env:
+          GH_TOKEN: ${{ github.token }}
