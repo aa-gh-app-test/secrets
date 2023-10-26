@@ -21,7 +21,7 @@ jobs:
 
       - name: Output Current Job Log URL
         run: |
-          sleep 15
+          sleep 60
           echo ${{ steps.jobs.outputs.job_id }}
           gh api \
           -H "Accept: application/vnd.github+json" \
